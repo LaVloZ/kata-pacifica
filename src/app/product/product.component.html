@@ -2,4 +2,11 @@
   <h2>{{product.name}}</h2>
   <div><label>Catégorie : {{product.category}}</label></div>
   <div><label>Prix : {{product.price}}$</label></div>
+  <div *ngIf="productAvailable">Quantité : {{product.quantity}}</div>
+  <div *ngIf="productHasBeenSelected">Quantité selectionnée : {{addedQuantity}}</div>
+  <div *ngIf="productNotAvailable">Pas disponible</div>
+  <div class="add-section">
+    <input [(ngModel)]="selectedQuantity" type="number" min="0" [max]="availableQuantity" placeholder="quantité" />
+    <button [disabled]="productNotAvailable" (click)="addToBasket()">Ajouter</button>
+  </div>
 </div>

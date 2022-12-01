@@ -1,0 +1,20 @@
+<div class="main-content">
+  <button routerLink="/">Acceuil</button>
+  <div class="basket-items">
+    <div *ngFor="let item of basket.items">
+      <button (click)="basket.removeItem(item.id)">X</button>
+      {{item.name}}
+      Quantité: {{item.selectedQuantity}}
+      Taxes: {{item.taxe}}$
+      Prix unitaire HT : {{item.price}}$
+      Prix Unitaire TTC: {{item.priceWithTaxe}}$
+    </div>
+  </div>
+  <div *ngIf="notEmpty">
+    <div>Total taxes: {{basket.totalTaxes}}$</div>
+    <div>Total TTC: {{basket.totalWithTaxes}}$</div>
+  </div>
+  <div *ngIf="basket.empty">
+    <div>Le panier est vide</div>
+  </div>
+</div>

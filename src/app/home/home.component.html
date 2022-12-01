@@ -1,0 +1,13 @@
+<div class="main-content" role="main">
+  <div class="basket-count">
+    <div>
+      <input [(ngModel)]="categoryFilter" (change)="fetchProducts()" placeholder="Catégorie" />
+    </div>
+    <div>
+      <a routerLink="/basket"><h2>Panier: {{basket.quantities}}</h2></a>
+    </div>
+  </div>
+  <div class="products">
+    <product *ngFor="let product of products" [product]="product"></product>
+  </div>
+</div>
